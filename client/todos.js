@@ -31,8 +31,10 @@ var listsHandle = Meteor.subscribe('lists', function () {
 
 var todosHandle = null;
 // Always be subscribed to the todos for the selected list.
+// ===============
 // register that this should run NOW and rerun later if its depedencies change,
 // especially the dependency list
+// ===============
 Deps.autorun(function () {
   var list_id = Session.get('list_id');
   if (list_id)
@@ -95,6 +97,9 @@ Template.lists.events({
     // prevent clicks on <a> from refreshing the page.
     evt.preventDefault();
   },
+	'click .list .remove-list': function(evt){
+		Lists.remove(this._id);
+	},
   'dblclick .list': function (evt, tmpl) { // start editing list name
     Session.set('editing_listname', this._id);
     Deps.flush(); // force DOM redraw, so we can focus the edit field

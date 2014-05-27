@@ -24,6 +24,7 @@
     <div id="lists">
       {{#each lists}}
         <div class="list {{selected}}">
+		<input type="button" value='x' class='remove-list' style="display:inline-block"/>
           {{#if editing}}
             <div class="edit">
               <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
@@ -84,7 +85,7 @@
           <div class="remove"></div>
         </div>
       {{/each}}
-      {{#if adding_tag}}
+     {{#if adding_tag}}
         <div class="tag edittag">
           <input type="text" id="edittag-input" value="" />
         </div>

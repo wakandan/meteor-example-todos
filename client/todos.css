@@ -172,13 +172,18 @@ h3 {
     border-top: 1px solid #ccc;
 }
 
+#lists .list {
+	position: relative;
+}
 #item-list .todo .destroy {
-    cursor: pointer;
-    position: absolute;
     left: 5px;
     top: 15px;
     height: 20px;
     width: 20px;
+}
+#item-list .todo .destroy {
+    cursor: pointer;
+    position: absolute;
 }
 
 #item-list .todo .display, #item-list .todo .edit {
@@ -201,12 +206,16 @@ h3 {
     color: #999;
 }
 
-#item-list .todo:hover .destroy {
+#item-list .todo:hover .destroy,
+#lists .list .destroy {
     background: url('/destroy.png') no-repeat 0 0;
 }
 
+#lists .list:hover .destroy {
+	display: block;
+}
 #item-list .todo .destroy:hover {
-    background-position: 0 -20px;
+    background-position: 0 -10px;
 }
 
 #item-list .todo .item-tags {
